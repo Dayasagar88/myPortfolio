@@ -1,7 +1,6 @@
 
 
 import { motion } from 'framer-motion'
-import { Image } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ic from "../assets/js.png"                                          
 import ic1 from "../assets/git.png"                                          
@@ -11,7 +10,7 @@ import ic5 from "../assets/programing.png"
 import ic6 from "../assets/atom.png"                                          
 import ic7 from "../assets/nextjs.png"                                          
 import ic8 from "../assets/express.png"                                          
-import ic9 from "../assets/mongoDB.png"                                          
+import ic9 from "../assets/mongodb.png"                                          
 
 const skills = [
   { name: 'JavaScript', icon: ic},
