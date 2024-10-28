@@ -42,23 +42,23 @@ export default function Home() {
           alt="John Doe"
           width={150}
           height={150}
-          className="rounded-full mx-auto mb-8"
+          className="rounded-full mx-auto mb-6"
         />
-        <h1 className="text-4xl dark:text-gray-200  font-semibold mb-4">Daya Sagar</h1>
-        <h2 className="text-2xl text-gray-600 dark:text-gray-400 mb-2 h-8">{displayedSkill} |</h2>
-        <p className="text-lg text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto">
+        <h1 className="sm:text-4xl text-2xl dark:text-gray-200  font-semibold mb-2">Daya Sagar</h1>
+        <h2 className="sm:text-2xl text-xl text-gray-600 dark:text-gray-400 mb-2 h-8">{displayedSkill} <span className='animate-pulse'>|</span></h2>
+        <p className="sm:text-lg text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto">
           Passionate about creating elegant solutions to complex problems. Always learning, always growing.
         </p>
         <motion.div
-          className="flex justify-center space-x-4"
+          className="flex justify-center sm:space-x-4 space-x-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <Link to="/work" className="bg-black hover:bg-gray-700 text-gray-200 font-bold py-2 px-4 rounded transition duration-300">
+          <Link to="/work" className="bg-black hover:bg-gray-700 text-gray-200 font-semibold py-2 sm:px-4 px-2 rounded transition duration-300">
             View My Work
           </Link>
-          <Link to="/about" className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-2 px-4 rounded transition duration-300">
+          <Link to="/about" className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-semibold py-2 px-2 sm:px-4 rounded transition duration-300">
             About
           </Link>
         </motion.div>

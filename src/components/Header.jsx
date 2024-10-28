@@ -78,7 +78,7 @@ const Header = () => {
             <NavLink to="/" onClick={() => setIsOpen(false)}>Home</NavLink>
             <NavLink to="/about" onClick={() => setIsOpen(false)}>About</NavLink>
             <NavLink to="/work" onClick={() => setIsOpen(false)}>Work</NavLink>
-            <NavLink to="/contact" onClick={() => setIsOpen(false)}>Contact</NavLink>
+            {/* <NavLink to="/contact" onClick={() => setIsOpen(false)}>Contact</NavLink> */}
             <button
               onClick={() => {
                 toggleDarkMode()
