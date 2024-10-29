@@ -1,34 +1,49 @@
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import laptoImg from "../assets/coding.gif";
 
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import myImage from "../assets/myImage.jpg"
-
-const skills = ['Web Developer', 'Software Engineer', 'Problem Solver', 'Tech Enthusiast']
+const skills = ['Web Developer', 'Software Engineer', 'Problem Solver', 'Tech Enthusiast'];
 
 export default function Home() {
-  const [skillIndex, setSkillIndex] = useState(0)
-  const [displayedSkill, setDisplayedSkill] = useState('')
+  const [skillIndex, setSkillIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
-      setDisplayedSkill('');
     }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (displayedSkill.length < skills[skillIndex].length) {
-      const timeout = setTimeout(() => {
-        setDisplayedSkill(skills[skillIndex].slice(0, displayedSkill.length + 1));
-      }, 100);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [displayedSkill, skillIndex]);
-
+  const ShadowSlideText = ({ text }) => {
+    const words = text.split(' '); // Text ko words mein split karo
+  
+    return (
+      <div className="flex">
+        {words.map((word, wordIndex) => (
+          <motion.span
+            key={wordIndex}
+            initial={{ x: '-100%', opacity: 0 }} // Left se start karo
+            animate={{ x: 0, opacity: 1 }} // Slide aur show karo
+            transition={{
+              delay: wordIndex * 0.5, // Har word ke liye delay
+              duration: 0.5, // Animation ki duration
+              ease: "easeOut" // Smooth animation
+            }}
+            style={{
+              display: 'inline-block',
+              textShadow: '2px 2px 5px rgba(0, 0, 0, 0.4)', // Shadow (agar chahiye)
+              marginRight: '0.5rem', // Words ke beech mein space
+            }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </div>
+    );
+  };
+  
   return (
     <div className="container mx-auto px-6 py-12 flex flex-col items-center justify-center min-h-[80vh]">
       <motion.div
@@ -38,16 +53,17 @@ export default function Home() {
         className="text-center"
       >
         <img
-          src={myImage}
+          src={laptoImg}
           alt="John Doe"
-          width={150}
-          height={150}
-          className="rounded-full mx-auto mb-6"
+          width={200}
+          height={200}
+          className="rounded-md mx-auto mb-3"
         />
-        <h1 className="sm:text-4xl text-2xl dark:text-gray-200  font-semibold mb-2">Daya Sagar</h1>
-        <h2 className="sm:text-2xl text-xl text-gray-600 dark:text-gray-400 mb-2 h-8">{displayedSkill} <span className='animate-pulse'>|</span></h2>
+        <h2 className="sm:text-2xl flex justify-center text-xl text-gray-600  dark:text-gray-400 mb-4 h-6">
+          <ShadowSlideText text={skills[skillIndex]} /> <span className='animate-pulse'> |</span>
+        </h2>
         <p className="sm:text-lg text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto">
-          Passionate about creating elegant solutions to complex problems. Always learning, always growing.
+          {"I'm"} a passionate developer focused on creating clean, well-crafted interfaces. With a keen eye for design and a love for elegant code, I bring ideas to life through intuitive and responsive web applications.
         </p>
         <motion.div
           className="flex justify-center sm:space-x-4 space-x-2"
@@ -64,5 +80,5 @@ export default function Home() {
         </motion.div>
       </motion.div>
     </div>
-  )
+  );
 }

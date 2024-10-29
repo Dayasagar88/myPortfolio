@@ -1,16 +1,15 @@
-
-
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import ic from "../assets/js.png"                                          
-import ic1 from "../assets/git.png"                                          
-import ic3 from "../assets/github.png"                                          
-import ic4 from "../assets/java.png"                                          
-import ic5 from "../assets/programing.png"                                          
-import ic6 from "../assets/atom.png"                                          
-import ic7 from "../assets/nextjs.png"                                          
-import ic8 from "../assets/express.png"                                          
-import ic9 from "../assets/mongodb.png"                                          
+import ic from "../assets/js.png"
+import ic1 from "../assets/git.png"
+import ic3 from "../assets/github.png"
+import ic4 from "../assets/java.png"
+import ic5 from "../assets/programing.png"
+import ic6 from "../assets/atom.png"
+import ic7 from "../assets/nextjs.png"
+import ic8 from "../assets/express.png"
+import ic9 from "../assets/mongodb.png"
+import myImage from "../assets/myImage.jpg"
 
 const skills = [
   { name: 'JavaScript', icon: ic},
@@ -26,66 +25,104 @@ const skills = [
 
 export default function About() {
   return (
-    <div className="container mx-auto px-6 py-12">
+    <div className="container mx-auto px-4 py-8">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-8 text-center"
+        className="text-3xl font-bold mb-6 text-center"
       >
         About Me
       </motion.h1>
-      <div className="grid mb-8 md:grid-cols-2 gap-12">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <h2 className="text-2xl font-semibold mb-4">My Journey</h2>
-          <p className="mb-4">
-            {"I'm"} a passionate software engineer with a love for creating efficient and elegant solutions. My journey in tech started when I built my first website at the age of 15, and {"I've"} been hooked ever since.
-          </p>
-          <p className="mb-4">
-            After graduating with a degree in Computer Science, {"I've"} worked on various projects ranging from web applications to mobile apps and backend systems. {"I'm"} always excited to learn new technologies and apply them to solve real-world problems.
-          </p>
-          <p>
-            When {"I'm"} not coding, you can find me hiking in the mountains, reading sci-fi novels, or experimenting with new recipes in the kitchen.
-          </p>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h2 className="text-2xl font-semibold mb-4">Technical Skills</h2>
-          <div className="grid  grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="grid gap-6 md:grid-cols-2">
+      <Section title="My Journey" delay={0.2}>
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="w-32 h-32 rounded-full overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <img
+                src={myImage}
+                alt="Your Name"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            <p className="text-sm">
+              Passionate software engineer with a knack for efficient solutions. Started coding at 15 and never looked back. Always eager to learn and apply new technologies to real-world problems.
+            </p>
+          </div>
+        </Section>
+        <Section title="Technical Skills" delay={0.3}>
+          <div className="grid grid-cols-6 gap-2">
             {skills.map((skill, index) => (
-              
               <motion.div
                 key={skill.name}
-                className="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"
-                initial={{ opacity: 0, y: 20 }}
+                className="flex flex-col items-center p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
+                transition={{ duration: 0.2, delay: 0.05 * index }}
               >
-                <img src={skill.icon} alt={skill.name} width={48} height={48} className="mb-2" />
-                <span className="text-sm font-medium">{skill.name}</span>
+                <img src={skill.icon} alt={skill.name} width={24} height={24} className="mb-1" />
+                <span className="text-xs font-medium">{skill.name}</span>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </Section>
+        <Section title="Education" delay={0.4}>
+          <p className="text-sm">
+            B.S. in Computer Science<br />
+            University of Technology, 2018-2022
+          </p>
+        </Section>
+        <Section title="Achievements" delay={0.5}>
+          <ul className="list-disc list-inside text-sm">
+            <li>1st Place, National Coding Competition 2021</li>
+            <li>Published 3 mobile apps with 100k+ downloads</li>
+            <li>Open source contributor to React Native</li>
+          </ul>
+        </Section>
+        <Section title="Contact" delay={0.6}>
+          <div className="text-sm">
+            <p>Email: <Link target='blank'
+              to="mailto:dayasagarconnect@gmail.com"
+              className="hover:underline"
+            >
+              {" "}
+              dayasagarconnect@gmail.com
+            </Link></p>
+            <p>Phone: +91 8800715029</p>
+            <div className="mt-2">
+              <Link to="https://github.com/Dayasagar88" target="_blank" rel="noopener noreferrer" className="mr-4 text-blue-500 hover:text-blue-600">GitHub</Link>
+              <Link to="https://www.linkedin.com/in/daya-sagar-903676179?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bj8nlo7iKQjqQYauQrVoNeg%3D%3D" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">LinkedIn</Link>
+            </div>
+          </div>
+        </Section>
       </div>
-      <hr></hr>
+      <hr className='mt-8' />
       <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-8 text-center"
-        >
-          <Link to="/resume.pdf" className="inline-block bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-2 px-4 rounded transition duration-300">
-            Download Resume
-          </Link>
-        </motion.div>
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+        className="mt-8 text-center"
+      >
+        <Link to="https://drive.usercontent.google.com/download?id=10GHqIpeUbjIQZrPOHm25GtIQRBEtAPE2&export=download&authuser=1&confirm=t&uuid=376d8727-6246-4255-9fcd-848c601fe3e0&at=AN_67v2ccZ3uTtVE1OjUTF12Fn5f:1730196251290" className="inline-block bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-2 px-4 rounded text-sm transition duration-300">
+          Download Resume
+        </Link>
+      </motion.div>
     </div>
   )
 }
+
+const Section = ({ title, children, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay }}
+    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4"
+  >
+    <h2 className="text-xl font-semibold mb-2">{title}</h2>
+    {children}
+  </motion.div>
+)
