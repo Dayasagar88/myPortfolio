@@ -30,7 +30,7 @@ export default function About() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-3xl font-bold mb-6 text-center"
+        className="text-3xl font-semibold mb-6 text-center"
       >
         About Me
       </motion.h1>
@@ -50,7 +50,7 @@ export default function About() {
               />
             </motion.div>
             <p className="text-sm">
-              Passionate software engineer with a knack for efficient solutions. Started coding at 15 and never looked back. Always eager to learn and apply new technologies to real-world problems.
+            My professional journey began in 2017 with tool engineering at the Delhi Institute of Tool Engineering (DITE). In 2021, I took on the role of Assistant Engineer in the Tool Room Department, where I gained valuable experience in precision and design. However, I soon realized my true passion lay in the dynamic field of software engineering. Driven by this interest, I transitioned into tech and am now pursuing a B.Tech in Information Technology to align my career with my ambitions.
             </p>
           </div>
         </Section>
@@ -71,10 +71,16 @@ export default function About() {
           </div>
         </Section>
         <Section title="Education" delay={0.4}>
+          <div className='space-y-2'>
           <p className="text-sm">
-            B.S. in Computer Science<br />
-            University of Technology, 2018-2022
+            <span className='font-semibold'>B-Tech in Information Technology-(2022-2026)</span><br />
+            Dr. akhilesh das gupta institute of professional studies,IPU
           </p>
+          <p className="text-sm">
+            <span className='font-semibold'>Diploma in tool engineering-(2017-2021)</span><br />
+            Delhi institute of tool engineering,IPU
+          </p>
+          </div>
         </Section>
         <Section title="Achievements" delay={0.5}>
           <ul className="list-disc list-inside text-sm">

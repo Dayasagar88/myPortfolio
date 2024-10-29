@@ -3,7 +3,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import laptoImg from "../assets/coding.gif";
 
-const skills = ['Web Developer', 'Software Engineer', 'Problem Solver', 'Tech Enthusiast'];
+const skills = [
+  'Nameste Dev!',         // English
+  'Hello Dev!',    // Hindi
+  'Bonjour Dev!',      // Punjabi
+  'Hola Dev!'
+];
 
 export default function Home() {
   const [skillIndex, setSkillIndex] = useState(0);
@@ -33,7 +38,7 @@ export default function Home() {
             }}
             style={{
               display: 'inline-block',
-              textShadow: '2px 2px 5px rgba(0, 0, 0, 0.4)', // Shadow (agar chahiye)
+              textShadow: '2px 2px 5px rgba(0, 0, 0, 0.)', // Shadow (agar chahiye)
               marginRight: '0.5rem', // Words ke beech mein space
             }}
           >
@@ -59,8 +64,8 @@ export default function Home() {
           height={200}
           className="rounded-md mx-auto mb-3"
         />
-        <h2 className="sm:text-2xl flex justify-center text-xl text-gray-600  dark:text-gray-400 mb-4 h-6">
-          <ShadowSlideText text={skills[skillIndex]} /> <span className='animate-pulse'> |</span>
+        <h2 className="sm:text-2xl shadow-none flex justify-center text-xl text-gray-600  dark:text-gray-400 mb-4 h-6">
+          <ShadowSlideText text={skills[skillIndex]} /><span className='animate-pulse'></span>
         </h2>
         <p className="sm:text-lg text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto">
           {"I'm"} a passionate developer focused on creating clean, well-crafted interfaces. With a keen eye for design and a love for elegant code, I bring ideas to life through intuitive and responsive web applications.
