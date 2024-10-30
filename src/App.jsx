@@ -3,7 +3,7 @@ import RootLayout from './components/RootLayout'
 import Home from './components/Home'
 import About from './components/About'
 import Work from './components/Work'
-import Contact from './components/Contact'
+import CaseStudy from './components/CaseStudy'
 
 
 function App() {
@@ -14,7 +14,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="work" element={<Work />} />
-          <Route path="contact" element={<Contact />} />
+          <Route path="case-study" element={<CaseStudy />} />
+          {/* <Route path="contact" element={<Contact />} /> */}
         </Route>
       </Routes>
     </Router>
