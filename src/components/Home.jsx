@@ -50,7 +50,7 @@ export default function Home() {
   };
   
   return (
-    <div className="container mx-auto px-6 py-12 flex flex-col items-center justify-center min-h-[80vh]">
+    <div className="container mx-auto px-6 py-12 mt-14 flex flex-col items-center justify-center min-h-[80vh]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
