@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-300 dark:bg-gray-800 fixed w-full shadow-sm">
+    <header className=" dark:bg-gray-800 fixed w-full ">
       <nav className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-xl text-gray-800 dark:text-gray-300">
@@ -112,11 +112,11 @@ const Header = () => {
             <NavLink to="/" onClick={() => setIsOpen(false)}>
               Home
             </NavLink>
-            <NavLink to="/about" onClick={() => setIsOpen(false)}>
-              About
-            </NavLink>
             <NavLink to="/work" onClick={() => setIsOpen(false)}>
               Work
+            </NavLink>
+            <NavLink to="/about" onClick={() => setIsOpen(false)}>
+              About
             </NavLink>
           </motion.div>
         )}
