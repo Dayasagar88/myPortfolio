@@ -60,10 +60,10 @@ export default function Work() {
         <div className="px-4 py-2 flex justify-between items-center text-sm">
           <Link to="/case-study" className='text-blue-500 hover:text-blue-600'>Case study</Link>
           <div className="flex space-x-2">
-            <Link to={project.github} className="text-blue-500 hover:text-blue-600 transition duration-300">
+            <Link target='blank' to={project.github} className="text-blue-500 hover:text-blue-600 transition duration-300">
               GitHub
             </Link>
-            <Link to={project.demo} className="text-green-500 hover:text-green-600 transition duration-300">
+            <Link target='blank' to={project.demo} className="text-green-500 hover:text-green-600 transition duration-300">
               Live Demo
             </Link>
           </div>

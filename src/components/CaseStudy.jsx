@@ -9,14 +9,14 @@ import { caseStudy } from "@/constants/constants";
 const CaseStudy = () => {
   if (!caseStudy) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen mt-10 bg-background flex items-center justify-center mt-30">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Case Study Not Found</h1>
           <p className="mb-8">
             Sorry, we {"couldn't"} find the case study {"you're"} looking for.
           </p>
-          <Button asChild>
-            <Link href="/work">Back to Work</Link>
+          <Button>
+            <Link  to="/work">Back to Work</Link>
           </Button>
         </div>
       </div>
@@ -25,21 +25,8 @@ const CaseStudy = () => {
 
   return (
     <div className="min-h-screen lg:w-[70vw] mx-auto">
-      <div className="container mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
-          <Link
-            to="/work"
-            className="inline-flex items-center text-primary hover:underline"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Work
-          </Link>
-        </motion.div>
+      <div className="container mx-auto px-4 py-8 mt-14">
+        
 
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -192,7 +179,22 @@ const CaseStudy = () => {
           </blockquote>
           <p className="mt-1 text-sm font-semibold">- {caseStudy.testimonial.author}</p>
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mt-6"
+        >
+          <Link
+            to="/work"
+            className="inline-flex items-center text-primary hover:underline"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Work
+          </Link>
+        </motion.div>
       </div>
+      
     </div>
   );
 };

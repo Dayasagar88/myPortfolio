@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import laptoImg from "../assets/coding.gif";
 
 const skills = [
-  'Nameste Dev!',         // English
+  'Namaste Dev!',         // English
   'Hello Dev!',    // Hindi
   'Bonjour Dev!',      // Punjabi
   'Hola Dev!'

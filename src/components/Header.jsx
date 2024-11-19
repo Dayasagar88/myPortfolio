@@ -26,10 +26,10 @@ const Header = () => {
   };
 
   return (
-    <header className=" dark:bg-gray-800 fixed w-full ">
+    <header className=" bg-gray-100 dark:bg-gray-900 fixed w-full ">
       <nav className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-xl text-gray-800 dark:text-gray-300">
+          <Link to="/" className="text-xl text-gray-600 dark:text-gray-300">
             Daya Sagar
           </Link>
           <div className="hidden md:flex items-center space-x-8">
