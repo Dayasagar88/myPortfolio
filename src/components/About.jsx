@@ -83,22 +83,22 @@ export default function About() {
         <Section title="Education" delay={0.4}>
           <div className='space-y-2'>
           <p className="text-sm">
-            <span className='font-semibold'>B-Tech in Information Technology-(2022-2026)</span><br />
-            Dr. akhilesh das gupta institute of professional studies,IPU
+            <span className='font-semibold'>Bachelor of Technology in Information Technology-(2022-2026)</span><br />
+            Dr. Akhilesh Das Gupta Institute of Professional Studies,GGSIPU
           </p>
           <p className="text-sm">
-            <span className='font-semibold'>Diploma in tool engineering-(2017-2021)</span><br />
+            <span className='font-semibold'>Diploma in Tool Engineering-(2017-2021)</span><br />
             Delhi institute of tool engineering,IPU
           </p>
           </div>
         </Section>
-        <Section title="Achievements" delay={0.5}>
+        {/* <Section title="Achievements" delay={0.5}>
           <ul className="list-disc list-inside text-sm">
             <li>1st Place, National Coding Competition 2021</li>
             <li>Published 3 mobile apps with 100k+ downloads</li>
             <li>Open source contributor to React Native</li>
           </ul>
-        </Section>
+        </Section> */}
         <Section title="Contact" delay={0.6}>
           <div className="text-sm">
             <p>Email: <Link target='blank'
@@ -123,7 +123,7 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.7 }}
         className="mt-8 text-center"
       >
-        <Link to="https://drive.usercontent.google.com/download?id=10GHqIpeUbjIQZrPOHm25GtIQRBEtAPE2&export=download&authuser=1&confirm=t&uuid=376d8727-6246-4255-9fcd-848c601fe3e0&at=AN_67v2ccZ3uTtVE1OjUTF12Fn5f:1730196251290" className="inline-block bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-2 px-4 rounded text-sm transition duration-300">
+        <Link to="https://drive.google.com/file/d/16C7zj5P_HpVl0-Csm_FTRfOMSkzCat0U/view?usp=drivesdk " className="inline-block bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-2 px-4 rounded text-sm transition duration-300">
           Download Resume
         </Link>
       </motion.div>
