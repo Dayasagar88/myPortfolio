@@ -1,40 +1,35 @@
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
-import project3 from "../assets/project3.png";
-import { skills } from "@/constants/constants";
 import { caseStudy } from "@/constants/constants";
+import { caseStudies } from "@/constants/constants";
+import { useEffect } from "react";
 
 const CaseStudy = () => {
-  if (!caseStudy) {
-    return (
-      <div className="min-h-screen mt-10 bg-background flex items-center justify-center mt-30">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Case Study Not Found</h1>
-          <p className="mb-8">
-            Sorry, we {"couldn't"} find the case study {"you're"} looking for.
-          </p>
-          <Button>
-            <Link  to="/work">Back to Work</Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  const { id, title } = useParams();
+  const { projects } = caseStudies;
+
+
+  const selectedProject = projects.find(
+    (project) => Number(id) === project.id
+  );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]); 
+
 
   return (
-    <div className="min-h-screen lg:w-[70vw] mx-auto">
+   selectedProject && <div className="min-h-screen lg:w-[70vw] mx-auto">
       <div className="container mx-auto px-4 py-8 mt-14">
-        
-
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-3xl font-semibold mb-6 text-center"
         >
-          {caseStudy.title}
+          {selectedProject.title}
         </motion.h1>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -44,8 +39,8 @@ const CaseStudy = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <img
-              src={project3}
-              alt={caseStudy.title}
+              src={selectedProject.image}
+              alt={selectedProject.title}
               width={400}
               height={300}
               className="rounded-lg w-full h-auto"
@@ -57,28 +52,29 @@ const CaseStudy = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col justify-between text-right"
           >
-            <div >
+            <div>
               <h2 className="text-lg font-semibold mb-1">Project Details</h2>
               <p className="text-sm">
                 {" "}
                 <span className="font-semibold">Client: </span>
-                {caseStudy.client}
+                {selectedProject.client}
               </p>
               <p className="text-sm">
                 {" "}
                 <span className="font-semibold">Duration: </span>{" "}
-                {caseStudy.duration}
+                {selectedProject.duration}
               </p>
               <p className="text-sm">
                 {" "}
                 <span className="font-semibold">Role: </span>
-                {caseStudy.role}
+                {selectedProject.role}
               </p>
             </div>
-            <div className="flex space-x-4 place-content-end">
+            <div className="flex space-x-4 mt-2 md:mt-0 place-content-end">
               <Button asChild variant="outline">
                 <Link
-                  to={caseStudy.github}
+                target="blank"
+                  to={selectedProject.github}
                   className="inline-flex items-center"
                 >
                   <Github className="mr-2 h-4 w-4" />
@@ -87,7 +83,8 @@ const CaseStudy = () => {
               </Button>
               <Button asChild variant="outline">
                 <Link
-                  href={caseStudy.demo}
+                target="blank"
+                  to={selectedProject.demo}
                   className="inline-flex items-center"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
@@ -105,9 +102,9 @@ const CaseStudy = () => {
           className="mb-12"
         >
           <h2 className="text-lg font-semibold mb-4">Technologies Used</h2>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((tech, index) => (
-              <img key={index} src={tech.icon} alt="img" width={30} />
+          <div className="flex cursor-pointer flex-wrap gap-4">
+            {selectedProject.technologies.map((tech, index) => (
+              <img title={tech.name} key={index} src={tech.icon} alt="img" width={30} />
             ))}
           </div>
         </motion.div>
@@ -120,7 +117,7 @@ const CaseStudy = () => {
         >
           <h2 className="text-lg font-semibold">Project Overview</h2>
           <p className="text-md text-muted-foreground">
-            {caseStudy.description}
+            {selectedProject.description}
           </p>
         </motion.div>
 
@@ -130,8 +127,8 @@ const CaseStudy = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-lg font-semibold mb-4">Project Workflow</h2>
-          <LinearProcessFlow />
+          {/* <h2 className="text-lg font-semibold mb-4">Project Workflow</h2>
+          <LinearProcessFlow /> */}
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -142,7 +139,7 @@ const CaseStudy = () => {
           >
             <h2 className="text-lg font-semibold">Challenges</h2>
             <p className="text-md text-muted-foreground">
-              {caseStudy.challenges}
+              {selectedProject.challenges}
             </p>
           </motion.div>
           <motion.div
@@ -152,7 +149,7 @@ const CaseStudy = () => {
           >
             <h2 className="text-lg font-semibold ">Solutions</h2>
             <p className="text-md text-muted-foreground">
-              {caseStudy.solutions}
+              {selectedProject.solutions}
             </p>
           </motion.div>
         </div>
@@ -164,10 +161,10 @@ const CaseStudy = () => {
           className="mb-12"
         >
           <h2 className="text-lg font-semibold ">Results</h2>
-          <p className="text-md text-muted-foreground">{caseStudy.results}</p>
+          <p className="text-md text-muted-foreground">{selectedProject.results}</p>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
@@ -175,10 +172,12 @@ const CaseStudy = () => {
         >
           <h2 className="text-lg font-semibold">Client Testimonial</h2>
           <blockquote className="text-md text-muted-foreground italic">
-            {caseStudy.testimonial.text}
+            {selectedProject.testimonial.text}
           </blockquote>
-          <p className="mt-1 text-sm font-semibold">- {caseStudy.testimonial.author}</p>
-        </motion.div>
+          <p className="mt-1 text-sm font-semibold">
+            - {selectedProject.testimonial.author}
+          </p>
+        </motion.div> */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -194,65 +193,64 @@ const CaseStudy = () => {
           </Link>
         </motion.div>
       </div>
-      
     </div>
   );
 };
 
 export default CaseStudy;
-function LinearProcessFlow() {
-  const steps = [
-    {
-      title: "Discovery & Planning",
-      description:
-        "Conducted in-depth client interviews and user research to understand pain points and goals.",
-    },
-    {
-      title: "Design & Prototyping",
-      description:
-        "Created wireframes and interactive prototypes, iterating based on client feedback.",
-    },
-    {
-      title: "Development",
-      description:
-        "Implemented the new design using React and Next.js, focusing on performance and scalability.",
-    },
-    {
-      title: "Testing & Quality Assurance",
-      description:
-        "Conducted thorough testing, including unit tests, integration tests, and user acceptance testing.",
-    },
-    {
-      title: "Deployment & Launch",
-      description:
-        "Utilized CI/CD pipeline for smooth deployment, with a phased rollout to minimize risks.",
-    },
-    {
-      title: "Post-Launch Support & Optimization",
-      description:
-        "Monitored performance, gathered user feedback, and made iterative improvements.",
-    },
-  ];
+// function LinearProcessFlow() {
+//   const steps = [
+//     {
+//       title: "Discovery & Planning",
+//       description:
+//         "Conducted in-depth client interviews and user research to understand pain points and goals.",
+//     },
+//     {
+//       title: "Design & Prototyping",
+//       description:
+//         "Created wireframes and interactive prototypes, iterating based on client feedback.",
+//     },
+//     {
+//       title: "Development",
+//       description:
+//         "Implemented the new design using React and Next.js, focusing on performance and scalability.",
+//     },
+//     {
+//       title: "Testing & Quality Assurance",
+//       description:
+//         "Conducted thorough testing, including unit tests, integration tests, and user acceptance testing.",
+//     },
+//     {
+//       title: "Deployment & Launch",
+//       description:
+//         "Utilized CI/CD pipeline for smooth deployment, with a phased rollout to minimize risks.",
+//     },
+//     {
+//       title: "Post-Launch Support & Optimization",
+//       description:
+//         "Monitored performance, gathered user feedback, and made iterative improvements.",
+//     },
+//   ];
 
-  return (
-    <div className="space-y-4">
-      {steps.map((step, index) => (
-        <motion.div
-          key={step.title}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="flex items-start"
-        >
-          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center mr-4">
-            {index + 1}
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold">{step.title}</h3>
-            <p className="text-sm text-muted-foreground">{step.description}</p>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
+//   return (
+//     <div className="space-y-4">
+//       {steps.map((step, index) => (
+//         <motion.div
+//           key={step.title}
+//           initial={{ opacity: 0, x: -20 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 0.5, delay: index * 0.1 }}
+//           className="flex items-start"
+//         >
+//           <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center mr-4">
+//             {index + 1}
+//           </div>
+//           <div>
+//             <h3 className="text-sm font-semibold">{step.title}</h3>
+//             <p className="text-sm text-muted-foreground">{step.description}</p>
+//           </div>
+//         </motion.div>
+//       ))}
+//     </div>
+//   );
+// }

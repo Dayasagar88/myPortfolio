@@ -9,19 +9,29 @@ import ic6 from "../assets/atom.png"
 import ic7 from "../assets/nextjs.png"
 import ic8 from "../assets/express.png"
 import ic9 from "../assets/mongodb.png"
+import ic10 from "../assets/redux.png";
+import ic11 from "../assets/jwt.png";
+import ic12 from "../assets/gpt.png";
+import ic13 from "../assets/firebase.png";
+import ic14 from "../assets/tailwind.png";
 import myImage from "../assets/myImage.jpg"
 
 const skills = [
-  { name: 'JavaScript', icon: ic},
-  { name: 'MongoDB', icon: ic9},
-  { name: 'Express', icon: ic8 },
-  { name: 'React', icon: ic6 },
-  { name: 'Node.js', icon: ic5 },
-  { name: 'Next.js', icon: ic7 },
-  { name: 'Java', icon: ic4 },
-  { name: 'Git', icon: ic1 },
-  { name: 'GitHub', icon: ic3 },
-]
+  { name: "JavaScript", icon: ic },
+  { name: "MongoDB", icon: ic9 },
+  { name: "Express", icon: ic8 },
+  { name: "React", icon: ic6 },
+  { name: "Node.js", icon: ic5 },
+  { name: "Next.js", icon: ic7 },
+  { name: "Tailwind CSS", icon: ic14 },
+  { name: "Java", icon: ic4 },
+  { name: "Git", icon: ic1 },
+  { name: "GitHub", icon: ic3 },
+  { name: "Redux", icon: ic10 },
+  { name: "Jwt", icon: ic11 },
+  { name: "Chat GPT", icon: ic12 },
+  { name: "Firebase", icon: ic13 },
+];
 
 export default function About() {
   return (

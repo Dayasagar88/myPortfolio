@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import laptoImg from "../assets/coding.gif";
 
 const skills = [
-  'Namaste Dev!',         // English
-  'Hello Dev!',    // Hindi
-  'Bonjour Dev!',      // Punjabi
-  'Hola Dev!'
+  'Hello !',   // English  
+  'Namaste !', // Hindi  
+  'Hola !',    // Spanish  
+  'Bonjour !', // French  
+  'Konnichiwa !' // Japanese  
 ];
-
 export default function Home() {
   const [skillIndex, setSkillIndex] = useState(0);
 
@@ -67,8 +67,8 @@ export default function Home() {
         <h2 className="sm:text-2xl shadow-none flex justify-center text-xl text-gray-600  dark:text-gray-400 mb-4 h-6">
           <ShadowSlideText text={skills[skillIndex]} /><span className='animate-pulse'></span>
         </h2>
-        <p className="sm:text-lg text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto">
-          {"I'm"} a passionate developer focused on creating clean, well-crafted interfaces. With a keen eye for design and a love for elegant code, I bring ideas to life through intuitive and responsive web applications.
+        <p className="md:text-sm text-xs  text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto">
+        I&apos;m a passionate developer who loves building intuitive and engaging digital experiences. I focus on clean, efficient solutions that enhance usability and performance. Constantly learning and refining my craft, I strive to bring ideas to life with precision.
         </p>
         <motion.div
           className="flex justify-center sm:space-x-4 space-x-2"
