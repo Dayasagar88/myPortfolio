@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed w-full ">
+    <header className="fixed w-full  z-50 bg-white dark:bg-[#020817]">
       <nav className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-xl text-gray-600 dark:text-gray-300">
@@ -107,7 +107,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden flex flex-col items-center mt-4 space-y-2"
+            className="absolute top-12 left-0 w-full bg-white dark:bg-[#020817] py-4 flex flex-col items-center space-y-4 z-50"
           >
             <NavLink to="/" onClick={() => setIsOpen(false)}>
               Home

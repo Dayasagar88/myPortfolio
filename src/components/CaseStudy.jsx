@@ -2,7 +2,6 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
-import { caseStudy } from "@/constants/constants";
 import { caseStudies } from "@/constants/constants";
 import { useEffect } from "react";
 
@@ -198,59 +197,4 @@ const CaseStudy = () => {
 };
 
 export default CaseStudy;
-// function LinearProcessFlow() {
-//   const steps = [
-//     {
-//       title: "Discovery & Planning",
-//       description:
-//         "Conducted in-depth client interviews and user research to understand pain points and goals.",
-//     },
-//     {
-//       title: "Design & Prototyping",
-//       description:
-//         "Created wireframes and interactive prototypes, iterating based on client feedback.",
-//     },
-//     {
-//       title: "Development",
-//       description:
-//         "Implemented the new design using React and Next.js, focusing on performance and scalability.",
-//     },
-//     {
-//       title: "Testing & Quality Assurance",
-//       description:
-//         "Conducted thorough testing, including unit tests, integration tests, and user acceptance testing.",
-//     },
-//     {
-//       title: "Deployment & Launch",
-//       description:
-//         "Utilized CI/CD pipeline for smooth deployment, with a phased rollout to minimize risks.",
-//     },
-//     {
-//       title: "Post-Launch Support & Optimization",
-//       description:
-//         "Monitored performance, gathered user feedback, and made iterative improvements.",
-//     },
-//   ];
 
-//   return (
-//     <div className="space-y-4">
-//       {steps.map((step, index) => (
-//         <motion.div
-//           key={step.title}
-//           initial={{ opacity: 0, x: -20 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.5, delay: index * 0.1 }}
-//           className="flex items-start"
-//         >
-//           <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center mr-4">
-//             {index + 1}
-//           </div>
-//           <div>
-//             <h3 className="text-sm font-semibold">{step.title}</h3>
-//             <p className="text-sm text-muted-foreground">{step.description}</p>
-//           </div>
-//         </motion.div>
-//       ))}
-//     </div>
-//   );
-// }
