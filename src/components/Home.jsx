@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import laptoImg from "../assets/coding.gif";
+import ParticlesBg from './ui/ParticlesBg';
 
 const skills = [
   'Hello !',   // English  
@@ -50,12 +51,13 @@ export default function Home() {
   };
   
   return (
-    <div className="container mx-auto px-6 py-12 mt-14 flex flex-col items-center justify-center min-h-[80vh]">
+    <div className="container relative mx-auto px-6 py-12 mt-14 flex flex-col items-center justify-center min-h-[80vh]">
+      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center z-20"
       >
         <img
           src={laptoImg}
